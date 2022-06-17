@@ -2,6 +2,7 @@
 
 # Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
+    // lomuto partition method is used here 
 class Solution {
     public int findKthLargest(int[] nums, int k) {
          k = nums.length - k ;  // converting it to kth smallest element 
