@@ -12,7 +12,9 @@ class Solution {
     public int quickSelect(int nums[],int l , int r , int k){
          
         while(l<=r){
-            int p = partition(nums,l,r);
+            int p = partition(nums,l,r);   // p tells that how many elements are smaller than the pivot
+            // if we have to find 4th smallest element we would check the position of pivot and how many elements are smaller than it according change the left 
+            // and right
             if(p == k ){
                 return nums[p];
             }
@@ -39,6 +41,6 @@ class Solution {
         int temp = nums[i+1];
         nums[i+1] = nums[h];
         nums[h] = temp;
-        return i+1;
+        return i+1;     // here i+1 elemetns are smaller than pivot element
     }
 }
