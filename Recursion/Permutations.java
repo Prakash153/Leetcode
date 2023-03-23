@@ -87,6 +87,20 @@ class Solution {
 
 2nd method : 
 
+
+For the approach 2 the idea is that we will swap the postions of element within the array and then add it to the answer list. 
+ 
+ for array [1,2,3];
+three possiible permutations are there :
+starting with 1
+starting with 2
+starting with 3
+ 
+ now for permutations stating with one we have two possible combination 2,3 and 3,2 
+for 2 we have 1,3 and 3,1 
+for 3 we have 2,1 and 1,2 
+ so considering this pattern we will swap.
+ 
 swap method : less space complexity 
 
 code: 
