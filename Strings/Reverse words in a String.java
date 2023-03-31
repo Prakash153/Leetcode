@@ -45,3 +45,35 @@ class Solution {
         return ans.trim();
     }
 }
+
+
+// optimal solution : 
+
+code: 
+class Solution {
+    public String reverseWords(String s) {
+        int i = 0 ; // start index of word 
+        int j = 0 ; // end + 1 index of word ; 
+        String res = ""; 
+        int n = s.length(); 
+        s.trim(); 
+        while(i < n){
+          // looking ofr first index of the word ; 
+          while(i < n && s.charAt(i) == ' ')
+          i++; 
+           if(i >= n)
+           break;
+           j = i+1; 
+          while(j < n && s.charAt(j) != ' ' )
+          j++; 
+
+          if(res.length() == 0) 
+          res = s.substring(i,j); 
+          else
+          res = s.substring(i,j) + " " + res; 
+
+          i = j+1;
+        }
+        return res;
+    }
+}
