@@ -77,3 +77,30 @@ class Solution {
         return res;
     }
 }
+
+// Using stack 
+
+class Solution {
+    public String reverseWords(String s) {
+        Stack<String > st = new Stack<>(); 
+        String res = ""; 
+        String temp = ""; 
+
+        for(int i = 0; i < s.length(); i++){
+          if(s.charAt(i) == ' '){
+            if(temp.length() > 0){
+              st.push(temp); 
+              temp = "";
+            }
+          }
+          else{
+            temp += s.charAt(i);
+          }
+        }
+        res += temp;
+        while(!st.isEmpty()){
+          res += " " + st.pop();
+        }
+        return res.trim();
+    }
+}
