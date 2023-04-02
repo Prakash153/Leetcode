@@ -6,6 +6,8 @@ Note: One can move from node u to node v only if there's an edge from u to v and
     
     
     code: 
+
+TC: O(v+e)
 added visited[] boolean array to traversal rest is same as BFS traversal of tree
 class Solution {
     // Function to return Breadth First Traversal of given graph.
