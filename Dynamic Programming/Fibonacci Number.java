@@ -1,4 +1,7 @@
 code: 
+TC: O(N); 
+SC: O(N) + O(N); 
+stack space + dp space
 class Solution {
     public int f(int n,int []dp){
         if( n <= 1)  return n; 
