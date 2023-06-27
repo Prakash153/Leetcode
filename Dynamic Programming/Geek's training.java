@@ -46,3 +46,68 @@ class Solution{
   return earnPoints(N-1,3,points,dp);
     }
 }
+
+
+
+// Tabular method : 
+
+class Solution{
+   
+    public int maximumPoints(int points[][],int N){
+        //code here
+        int dp [][] = new int[N][4]; 
+         dp[0][0] = Math.max(points[0][1] ,points[0][2]);
+          dp[0][1] = Math.max(points[0][0] ,points[0][2]);
+           dp[0][2] = Math.max(points[0][0] ,points[0][1]);
+            dp[0][3] = Math.max( points[0][0], Math.max(points[0][1] ,points[0][2]));
+            
+            
+            for(int day = 1 ; day < N; day ++){
+                for(int last = 0 ; last < 4 ; last++){
+                    int maxi = 0 ; 
+                    for(int task = 0 ; task < 3 ; task++){
+                        if(task != last){
+                            int point = points[day][task] + dp[day-1][task]; 
+                            dp[day][last] = Math.max(dp[day][last], point);
+                        }
+                    }
+                }
+            }
+        
+  return dp[N-1][3];
+    }
+}
+
+
+// space optimized method :
+
+
+class Solution{
+   
+    public int maximumPoints(int points[][],int N){
+        //code here
+        int prev[] = new int [4];
+ 
+        prev[0] = Math.max(points[0][1] ,points[0][2]);
+         prev[1] = Math.max(points[0][0] ,points[0][2]);
+          prev[2] = Math.max(points[0][0] ,points[0][1]);
+        prev[3] = Math.max( points[0][0], Math.max(points[0][1] ,points[0][2]));
+            
+            
+            for(int day = 1 ; day < N; day ++){
+                int temp[] = new int [4];
+                for(int last = 0 ; last < 4 ; last++){
+                    int maxi = 0 ; 
+                    for(int task = 0 ; task < 3 ; task++){
+                        if(task != last){
+                            int point = points[day][task] +  prev[task]; 
+                          temp[last] = Math.max(temp[last], point);
+                        }
+                    }
+                }
+                prev = temp;
+            }
+        
+  return  prev[3];
+    }
+}
